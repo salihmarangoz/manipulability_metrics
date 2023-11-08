@@ -1,0 +1,13 @@
+<launch>
+
+  <arg name="root_link" default="world" />
+  <arg name="tip_link" default="link_eef" />
+  <arg name="chain_joints_file" default="$(find manipulability_metrics_examples)/config/lite6_joints.yaml" />
+
+  <node name="manipulability_demo" pkg="manipulability_metrics_examples" type="panda_manipulability_demo" output="screen">
+    <param name="root_link" value="$(arg root_link)" />
+    <param name="tip_link" value="$(arg tip_link)" />
+    <rosparam param="chain_joints" file="$(arg chain_joints_file)" />
+  </node>
+
+</launch>
